@@ -1,3 +1,10 @@
+fn hello(name: &str) -> std::string::String {
+    let mut s = String::from("Hello, ");
+    s.push_str(name);
+    s.push_str("!");
+    return s;
+}
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}", hello("world"));
 }
