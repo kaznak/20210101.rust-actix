@@ -1,5 +1,5 @@
 [package]
-name = "hello-world"
+name = "hello-actix"
 version = "0.1.0"
 authors = ["kaznak <kaznak.at.work@gmail.com>"]
 edition = "2018"
