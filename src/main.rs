@@ -1,5 +1,9 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
+async fn index() -> impl Responder {
+    "Hello world!"
+}
+
 #[get("/")]
 async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
@@ -21,6 +25,7 @@ async fn main() -> std::io::Result<()> {
             .service(hello)
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
+            .service(web::scope("/app").route("/index.html", web::get().to(index)))
     })
     .bind("127.0.0.1:8080")?
     .run()
