@@ -18,7 +18,7 @@ async fn index_counter(data: web::Data<AppStateWithCounter>) -> String {
     let mut counter = data.counter.lock().unwrap(); // <- get counter's MutexGuard
     *counter += 1; // <- access counter inside MutexGuard
 
-    format!("Request number: {}", counter) // <- response with count
+    format!("Request number: {}\n", counter) // <- response with count
 }
 
 async fn app_index() -> impl Responder {
